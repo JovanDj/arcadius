@@ -1,10 +1,12 @@
 import { PostOffice } from './post-office';
+import { ShipmentStatus } from './shipment-status';
 
 export abstract class Shipment {
   constructor(
     readonly id: number,
     readonly weight: number,
-    readonly postOffice: PostOffice
+    readonly postOffice: PostOffice,
+    readonly status: ShipmentStatus = 'ReceivedAtOrigin'
   ) {
     if (weight === 0) {
       throw new Error('Weight cannot be zero.');
